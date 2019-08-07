@@ -1,0 +1,201 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/main.css">
+        <script type="text/javascript" src="js/libs/jQuery.js"></script>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="leftPanel panels">
+                <div class="indicator"><img src="img/chevron-right.png"></div>
+                <div class="pdtListWrapper">
+                    <div class="backBtn">
+                        <img src="img/back-wh.png" />
+                    </div>
+                    <div class="pdtListCont">
+                        <!-- This duplicate dom created for making the vertical circular swiper-->
+                        <div class="pdtListDetail duplicate">
+                            <div class="pdtImg">
+                                <img src="img/thermostat.png">
+                            </div>
+                            <div class="pdtDetail">
+                                <ul class="pdtDetailList">
+                                    <li class="pdtTitle">Thermostat</li>
+                                    <li class="pdtType"><span class="">In </span>Bedroom</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="pdtListDetail">
+                            <div class="pdtImg">
+                                <img src="img/lamp.png">
+                            </div>
+                            <div class="pdtDetail">
+                                <ul class="pdtDetailList">
+                                    <li class="pdtTitle">Bed lamp</li>
+                                    <li class="pdtType"><span class="">In </span>Bedroom</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="pdtListDetail">
+                            <div class="pdtImg">
+                                <img src="img/ac.png">
+                            </div>
+                            <div class="pdtDetail">
+                                <ul class="pdtDetailList">
+                                    <li class="pdtTitle">Noria AC</li>
+                                    <li class="pdtType"><span class="">In </span>Bedroom</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="pdtListDetail">
+                            <div class="pdtImg">
+                                <img src="img/lock.png">
+                            </div>
+                            <div class="pdtDetail">
+                                <ul class="pdtDetailList">
+                                    <li class="pdtTitle">Door Lock</li>
+                                    <li class="pdtType"><span class="">In </span>Home office</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="pdtListDetail">
+                            <div class="pdtImg">
+                                <img src="img/tv.png">
+                            </div>
+                            <div class="pdtDetail">
+                                <ul class="pdtDetailList">
+                                    <li class="pdtTitle">LG TV</li>
+                                    <li class="pdtType"><span class="">In </span>Living room</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="pdtListDetail">
+                            <div class="pdtImg">
+                                <img src="img/thermostat.png">
+                            </div>
+                            <div class="pdtDetail">
+                                <ul class="pdtDetailList">
+                                    <li class="pdtTitle">Thermostat</li>
+                                    <li class="pdtType"><span class="">In </span>Bedroom</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="rightPanel panels">
+                <div class="rgtPanelWrap">
+                    <div class="panelTitle">Devices</div>
+                    <div class="pdtTitleCont">
+                        <h3 class="productTitle">Bed lamp</h3>
+                        <div class="toggleCont">
+                            <label class="toggleBtn">
+                                <input type="checkbox">
+                                <span class="toggleDot"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="deviceDetWrap">
+                        <div class="deviceSkuCont">
+                            <div class="skuTitle">
+                                <span class="deviceSkuTitle">Shades</span>
+                                <div class="titleBorder"></div>
+                            </div>
+                            <div class="deviceSkus">
+                                <div class="skuClrCont">
+                                    <label class="colorSku">
+                                      <input type="checkbox">
+                                      <span class="selected clr1"></span>
+                                    </label>
+                                </div>
+                                <div class="skuClrCont">
+                                    <label class="colorSku">
+                                        <input type="checkbox">
+                                        <span class="selected clr2"></span>
+                                    </label>
+                                </div>
+                                <div class="skuClrCont">
+                                    <label class="colorSku">
+                                        <input type="checkbox">
+                                        <span class="selected clr3"></span>
+                                    </label>
+                                </div>
+                                <div class="skuClrCont">
+                                    <label class="colorSku">
+                                        <input type="checkbox">
+                                        <span class="selected clr4"></span>
+                                    </label>
+                                </div>
+                                <div class="skuClrCont">
+                                    <label class="colorSku">
+                                        <input type="checkbox">
+                                        <span class="selected clr5"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="featureCont">
+                            <div class="skuTitle">
+                                <span class="deviceSkuTitle">Mode</span>
+                                <div class="titleBorder"></div>
+                            </div>
+                            <div class="modeList">
+                                <div class="modes mornMode active">
+                                    <div class="modeDetail">
+                                        <div class="modeImg" id="mornModeImg"></div>
+                                        <span class="modeTitle">Morning</span>
+                                    </div>
+                                    <div class="modeDetail">
+                                        <div class="modeVolume modeTitle">50%</div>
+                                        <div class="modeAvail modeImg"></div>
+                                    </div>
+                                </div>
+                                <div class="modes dayMode">
+                                    <div class="modeDetail">
+                                        <div class="modeImg" id="dayModeImg"></div>
+                                        <span class="modeTitle">Day</span>
+                                    </div>
+                                    <div class="modeDetail">
+                                        <div class="modeVolume modeTitle">30%</div>
+                                        <div class="modeAvail modeImg"></div>
+                                    </div>
+                                </div>
+                                <div class="modes nightMode">
+                                    <div class="modeDetail">
+                                        <div class="modeImg" id="nightModeImg"></div>
+                                        <span class="modeTitle">Night</span>
+                                    </div>
+                                    <div class="modeDetail">
+                                        <div class="modeVolume modeTitle">100%</div>
+                                        <div class="modeAvail modeImg"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="quickDemoCont">
+                            <div class="skuTitle">
+                                <span class="deviceSkuTitle">Intensity</span>
+                                <div class="titleBorder"></div>
+                            </div>
+                            <div class="scrollerWrap">
+                                <div class="swipeBall"></div>
+                                <div class="leftScroller">
+                                    <div class="scrollerCont">
+                                    <div class="scroller"></div>
+                                    </div>
+                                </div>
+                                <div class="rightScroller">
+                                    <div class="scrollerCont">
+                                        <div class="scroller"></div>
+                                    </div>
+                                </div>
+                                <span class="volume"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="js/custom/main.js"></script>
+    </body>
+</html>

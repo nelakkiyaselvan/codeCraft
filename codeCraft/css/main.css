@@ -1,0 +1,524 @@
+@font-face {
+    font-family: Montserrat-Bold;
+    src: url(../fonts/Montserrat/Montserrat-Bold.ttf);
+}
+@font-face {
+    font-family: Montserrat-Regular;
+    src: url(../fonts/Montserrat/Montserrat-Regular.ttf);
+}
+
+body {
+    margin: 0;
+}
+
+.wrapper {
+    width: 100%;
+}
+
+.wrapper, .leftPanel, .pdtListWrapper, .backBtn, .pdtListDetail, .rightPanel, h3.productTitle, .deviceDetWrap > div, .deviceSkuTitle, 
+.skuTitle, .deviceSkus, .skuClrCont, .colorSku, .modeList, .modeDetail, .modeImg, .modeTitle, .scrollerCont, 
+.scrollerWrap, .leftScroller, .rightScroller {
+    float: left;
+}
+
+.leftPanel {
+    width: 38%;
+    height: 100%;
+    /*overflow: hidden;*/
+    padding-right: 1%;
+    max-width: 380px;
+}
+
+.leftPanel, .pdtListWrapper, .pdtListDetail, .colorSku, .toggleBtn, .scrollerWrap {
+    position: relative;
+}
+
+.indicator {
+    top: 290px;
+    right: -25px;
+    z-index: 3;
+    /* display: none; */
+    transform: scale(0);
+    transition: 0.5s linear;
+    width: 40px;
+    height: 40px;
+    background-image: linear-gradient(-135deg, #DEFFC9 0%, #A3F8FF 100%);
+    box-shadow: 0 25px 25px 0 rgba(0,0,0,0.15);
+}
+
+.indicator.show {
+    display: block;
+    transform: scale(1);
+}
+
+.indicator img {
+    margin: 8px;
+}
+
+.indicator, .pdtListWrapper:before, .pdtImg, .backBtn, .toggleDot, .toggleDot:before, .colorSku input, .selected , .selected:after, .swipeBall, .leftScroller, .volume {
+    position: absolute;
+}
+
+.pdtListWrapper {
+    background-image: linear-gradient(-180deg, rgba(173,107,255,0.00) 0%, rgba(149,140,252,0.30) 0%, #9291FB 14%, rgba(141,152,251,0.85) 90%, rgba(116,188,247,0.00) 100%);
+    /*height: 100%;*/
+    width: 100%;
+}
+
+.pdtListWrapper:before {
+    opacity: 0.7;
+    content: "";
+    height: 170px;
+    width: 100%;
+    z-index: 1;
+    background: #958CFC;
+}
+
+.backBtn {
+    width: 30px;
+    height: 30px;
+    margin: 33px 0 0 20px;
+    z-index: 2;
+}
+
+.pdtListCont {
+    margin: 0 37px 0 40px;
+    height: 100%;
+}
+
+.pdtImg img {
+    width: 100%;
+    height: 100%;
+}
+
+.pdtListDetail {
+    width: 100%;
+    margin: 20px 0;
+    cursor: pointer;
+}
+
+.pdtImg {
+    width: 120px;
+    height: 120px;
+    transition: 0.5s linear;
+}
+
+.pdtTitle {
+    font-size: 16px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.pdtTitle, .panelTitle, h3.productTitle, .deviceSkuTitle, .volume {
+    font-family: Montserrat-Bold;
+}
+
+.pdtTitle, .pdtTypeName, .panelTitle , h3.productTitle, .modeTitle, .volume {
+    color: #000000;
+}
+
+li.pdtType {
+    opacity: 0.5;
+    font-size: 15px;
+    color: #666666;
+    letter-spacing: 0.47px;
+}
+
+li.pdtType {
+    font-family: Montserrat-Regular;
+}
+
+.pdtTypeName {
+    line-height: 19px;
+}
+
+.pdtDetail {
+    background: #FEFFFE;
+    box-shadow: 0 21px 21px 0 rgba(0,0,0,0.15);
+    min-width: 203px;
+    margin-left: 100px;
+    padding: 20px 0 20px 10px;
+    margin-top: 10px;
+    max-width: 240px;
+}
+
+ul.pdtDetailList {
+    list-style: none;
+    user-select: none;
+}
+
+.pdtListDetail.active {
+    position: unset;
+}
+
+.pdtListDetail.active .pdtImg {
+    right: 0;
+    transform: translateX(10px);
+}
+
+.pdtListDetail.active .pdtDetail {
+    margin-left: 0;
+    margin-top: 20px;
+}
+
+.rightPanel {
+    width: 60%;
+    display: none;
+}
+
+.rgtPanelWrap {
+    margin: 83px 40px 0 85px;
+}
+
+.panelTitle {
+    font-size: 48px;
+    text-transform: uppercase;
+    letter-spacing: 8.4px;
+    margin-bottom: 74px;
+}
+
+h3.productTitle {
+    font-size: 32px;
+    letter-spacing: 5.12px;
+    text-shadow: 0 20px 25px rgba(0,0,0,0.15);
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.pdtTitleCont {
+    width: 100%;
+}
+
+.toggleCont {
+    float: right;
+}
+
+.toggleBtn {
+    display: inline-block;
+    width: 42px;
+    height: 24px;
+}
+
+.toggleBtn input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggleDot {
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ffffff;
+    border: 1px solid #000000;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.toggleDot:before {
+    content: "";
+    height: 14px;
+    width: 14px;
+    top: 3px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    border: 1px solid #000000;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .toggleDot {
+  background-color: #000000;
+}
+
+input:focus + .toggleDot {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .toggleDot:before {
+    -webkit-transform: translateX(18px);
+    -ms-transform: translateX(18px);
+    transform: translateX(18px);
+}
+
+.deviceDetWrap {
+    display: none;
+}
+
+.deviceSkuCont {
+    margin-top: 66px;
+}
+  
+.deviceDetWrap > div {
+    width: 100%;
+    text-transform: uppercase;
+}
+
+.deviceSkuTitle {
+    font-size: 15px;
+    color: #AC6CFF;
+    letter-spacing: 1.5px;
+}
+
+.titleBorder {
+    border-bottom: 1px dotted #AC6CFF;
+    width: calc(100% - 100px);
+    height: 9px;
+    float: right;
+}
+
+.skuTitle {
+    width: 100%;
+}
+
+.deviceSkus {
+    width: 100%;
+    margin-top: 41px;
+    height: 50px;
+}
+
+.skuClrCont {
+    width: 20%;
+    margin: 8px 2% 0 0;
+}
+
+.skuClrCont.active {
+    margin-top: 0;
+}
+
+.skuClrCont:last-child {
+    width: auto;
+    margin-right: 0;
+}
+
+.colorSku {
+    height: 32px;
+    width: 32px;
+    box-shadow: 0 27px 27px 0 rgba(0,0,0,0.15);
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.colorSku input {
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.selected {
+    top: 0;
+    left: 0;
+    height: 32px;
+    width: 32px;
+}
+
+
+.colorSku .selected.clr1 {
+background-color: #FF4563;
+}
+
+.colorSku .selected.clr2 {
+    background-color: #8245E6;
+}
+
+.colorSku .selected.clr3 {
+    background-color:  #4AC0E0;
+}
+
+.colorSku .selected.clr4 {
+    background-color:  #1089EB;
+}
+
+.colorSku .selected.clr5 {
+    background-color:  #C791CD;
+}
+
+.selected:after {
+    content: "";
+    display: none;
+}
+
+.colorSku input:checked ~ .selected:after {
+    display: block;
+}
+
+.colorSku input:checked ~ .selected {
+    height: 48px;
+    width: 48px;
+}
+
+.colorSku .selected:after {
+    left: 12px;
+    top: 12px;
+    width: 24px;
+    height: 25px;
+    background-repeat: no-repeat;
+    background-image: url(../img/tick-wh.png);
+}
+
+.featureCont {
+    margin: 70px 0;
+}
+
+.modeList {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.modes {
+    width: 100%;
+    height: 56px;
+    cursor: pointer;
+}
+
+.modes.active {
+    box-shadow: 0 20px 20px 0 rgba(0,0,0,0.15);
+}
+
+.modes.mornMode.active {
+    background-image: linear-gradient(-135deg, #AD6BFF 0%, #74BCF7 100%);
+}
+
+.modes.dayMode.active {
+    background-image: linear-gradient(-135deg, #4072b9 0%, #acd3f3 100%);
+}
+
+.modes.nightMode.active {
+    background-image: linear-gradient(-135deg, #20083e 0%, #38434c 100%);
+}
+
+.modeDetail {
+    width: 50%;
+}
+
+#mornModeImg {
+    background: url(../img/morning-dk.png);
+}
+
+.active #mornModeImg {
+    background: url(../img/morning-wh.png);
+}
+
+#dayModeImg {
+    background: url(../img/day-dk.png);
+}
+
+#nightModeImg {
+    background: url(../img/night-dk.png);
+}
+
+.modeImg {
+    margin: 17px 23px 0 22px;
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+}
+
+.modeTitle {
+    font-family: Montserrat-Regular;
+    font-size: 18px;
+    letter-spacing: 0.56px;
+    margin-top: 18px;
+    text-transform: capitalize;
+}
+
+.active .modeTitle {
+    color: #FFFFFF;
+}
+
+.modeVolume.modeTitle {
+    opacity: 0.6;
+}
+
+.active .modeVolume.modeTitle {
+    opacity: 1;
+}
+
+.modeAvail.modeImg {
+    background-image: url(../img/tick-wh-lt.png);
+    float: right;
+    margin-right: 38px;
+}
+
+.active .modeAvail.modeImg {
+    background-image: url(../img/tick-wh.png);
+}
+
+.quickDemoCont {
+    padding-bottom: 42px;
+}
+
+.scroller {
+    height: 260px;
+    width: 260px;
+    background: white;
+    border-radius: 50%;
+}
+
+.scrollerCont {
+    width: 260px;
+    border-radius: 50%;
+    height: 260px;
+    padding: 5px;
+    margin: 10px;
+}
+
+.scrollerWrap {
+    width: 290px;
+    height: 130px;
+    overflow: hidden;
+    margin-top: 37px;
+}
+
+.swipeBall {
+    height: 26px;
+    width: 26px;
+    background-image: linear-gradient(-135deg, #AD6BFF 0%, #74BCF7 100%);
+    box-shadow: 0 10px 10px 0 rgba(0,0,0,0.15);
+    border-radius: 50%;
+    top: 0;
+    left: 130px;
+    transform-origin: 50% 145px;
+    transform: rotate(360deg);
+    z-index: 3;
+    transition: 0.7s linear;
+}
+
+.leftScroller {
+    width: 50%;
+    overflow: hidden;
+    z-index: 2;
+    transition: 0.7s linear;
+}
+
+.leftScroller .scrollerCont {
+    background: linear-gradient(-135deg, #AD6BFF 0%, #74BCF7 100%);
+}
+
+.rightScroller .scrollerCont {
+    background: linear-gradient(-135deg, #E5E5E5 0%, #979797 100%);
+}
+
+.rightScroller .scrollerCont {
+    padding: 3px;
+}
+
+.volume {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    font-size: 40px;
+    letter-spacing: 6.4px;
+    text-shadow: 0 20px 25px rgba(0,0,0,0.15);
+    z-index: 3;
+    margin-left: 5px;
+}
