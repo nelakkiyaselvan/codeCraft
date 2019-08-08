@@ -1,3 +1,15 @@
+function render () {
+    if(typeof(productList) != "undefined") {
+        let pdtList = productList;
+        if(pdtList.products && pdtList.products.length) {
+            let pdtListDom = pdtList.products.map(constructPdtList);
+            let parentEle = $('.pdtListCont');
+            parentEle.append(pdtListDom);
+            let x = $('.pdtListDetail:last-child').clone().addClass('duplicate');
+            parentEle.prepend(x);
+        }
+    }
+}
 function registerEvents() {
 
     $('.pdtListDetail').on('click',function(){
@@ -9,19 +21,21 @@ function registerEvents() {
             $('.pdtListDetail.active').removeClass('active');
             $('body').animate({scrollTop:0},100);
             toggleOff();
+            $('.backBtn').show();
             $('.indicator').addClass('show');
             $('.rightPanel').show();
             $('.productTitle').text($('.pdtTitle',$this).text());
             $this.addClass('active');
-            
         }
     });
 
     $('.backBtn').on('click',function(){    
         $('.indicator').removeClass('show');
         $('.rightPanel').hide();
+        $('.backBtn').hide();
         $('.pdtListDetail.active').removeClass('active');
         toggleOff();
+        resetMode();
     });
 
     $('.modes').on('click',function(){
@@ -46,18 +60,9 @@ function registerEvents() {
     $('.toggleBtn input').on('click',function(){
         if($(this).is(':checked')) {
             $('.deviceDetWrap').show();
+            renderPdtDetails();
         } else {
             $('.deviceDetWrap').hide();
-        }
-    });
-
-    $('.colorSku input').on('click',function(){
-        let $this = $(this);
-        if($this.is(':checked')) {
-            let curEle = $('.skuClrCont.active');
-            $('.colorSku input',curEle).prop('checked',false);
-            curEle.removeClass('active');
-            $this.parents('.skuClrCont').addClass('active');
         }
     });
 }
@@ -68,6 +73,68 @@ function toggleOff() {
     }
 }
 
+function renderPdtDetails() {
+    let pdtId = $('.pdtListDetail.active').attr('identifier');
+    constructSkus(pdtId);
+    resetMode();
+}
+
+function skuClick(e) {
+        let $this = $(e);
+        resetMode();
+        if($this.is(':checked') && !$this.parents('.active').length) {
+            let curEle = $('.skuClrCont.active');
+            $('.colorSku input',curEle).prop('checked',false);
+            curEle.removeClass('active');
+            $this.parents('.skuClrCont').addClass('active');
+            $('.featureCont , .quickDemoCont').removeClass('disabled');
+        } else {
+            $('.skuClrCont.active').removeClass('active');
+        }
+}
+
+function resetMode() {
+    $('.featureCont , .quickDemoCont').addClass('disabled');
+    $('.featureCont .active').removeClass('active');
+    $('.swipeBall , .leftScroller').removeAttr('style');
+    $('.volume').text(0);
+}
+
+function constructPdtList (data) {
+    if (data.name && data.image && data.identifier) {
+        return `<div class="pdtListDetail" identifier="${data.identifier}">
+                    <div class="pdtImg">
+                        <img src="${data.image}">
+                    </div>
+                    <div class="pdtDetail">
+                        <ul class="pdtDetailList">
+                            <li class="pdtTitle">${data.name}</li>
+                            ${data.type ? `<li class="pdtType"><span class="">${data.type.label} </span>${data.type.value}</li>` : ''}
+                        </ul>
+                    </div>
+                </div>`
+    }
+}
+
+function constructSkus (id) {
+    let pdtSkus = productList.products;
+    var curEle = pdtSkus.filter((ele) => ele.identifier == id ).pop();
+
+    if(curEle.properties && curEle.properties.skus && curEle.properties.skus.length) {
+        let skus = curEle.properties.skus;
+        var skuCont = skus.map(data => {
+            return `<div class="skuClrCont">
+                    <label class="colorSku">
+                    <input type="checkbox" onclick="skuClick(this)">
+                    <span class="selected" style="background-color: ${data.color};"></span>
+                    </label>
+                </div>`
+        });
+        $('.deviceSkus').html(skuCont)
+    }
+}
+
 $(document).ready(function(){
+    render();
     registerEvents();
 });

@@ -17,9 +17,17 @@ body {
 
 .wrapper, .leftPanel, .pdtListWrapper, .backBtn, .pdtListDetail, .rightPanel, h3.productTitle, .deviceDetWrap > div, .deviceSkuTitle, 
 .skuTitle, .deviceSkus, .skuClrCont, .colorSku, .modeList, .modeDetail, .modeImg, .modeTitle, .scrollerCont, 
-.scrollerWrap, .leftScroller, .rightScroller {
+.scrollerWrap, .leftScroller, .rightScroller, .pdtTitleCont, .deviceDetWrap {
     float: left;
 }
+
+/* .leftPanelWrapper {
+    float: left;
+    width: 38%;
+    overflow: hidden;
+    height: 100%;
+    max-width: 415px;
+} */
 
 .leftPanel {
     width: 38%;
@@ -34,8 +42,8 @@ body {
 }
 
 .indicator {
-    top: 290px;
-    right: -25px;
+    top: 310px;
+    right: -20px;
     z-index: 3;
     /* display: none; */
     transform: scale(0);
@@ -79,6 +87,7 @@ body {
     height: 30px;
     margin: 33px 0 0 20px;
     z-index: 2;
+    display: none;
 }
 
 .pdtListCont {
@@ -87,8 +96,13 @@ body {
 }
 
 .pdtImg img {
-    width: 100%;
-    height: 100%;
+    width: 120px;
+    height: 120px;
+}
+
+.active .pdtImg img {
+    width: 140px;
+    height: 140px;
 }
 
 .pdtListDetail {
@@ -98,8 +112,6 @@ body {
 }
 
 .pdtImg {
-    width: 120px;
-    height: 120px;
     transition: 0.5s linear;
 }
 
@@ -147,6 +159,11 @@ ul.pdtDetailList {
     user-select: none;
 }
 
+.active ul.pdtDetailList {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
 .pdtListDetail.active {
     position: unset;
 }
@@ -167,7 +184,7 @@ ul.pdtDetailList {
 }
 
 .rgtPanelWrap {
-    margin: 83px 40px 0 85px;
+    margin: 83px 40px 0 65px;
 }
 
 .panelTitle {
@@ -175,6 +192,10 @@ ul.pdtDetailList {
     text-transform: uppercase;
     letter-spacing: 8.4px;
     margin-bottom: 74px;
+}
+
+.panelTitle, .pdtTitleCont, .skuTitle, .deviceSkus {
+    margin-left: 21px;
 }
 
 h3.productTitle {
@@ -191,6 +212,7 @@ h3.productTitle {
 
 .toggleCont {
     float: right;
+    margin-top: 7px;
 }
 
 .toggleBtn {
@@ -369,6 +391,11 @@ background-color: #FF4563;
     margin: 70px 0;
 }
 
+.disabled {
+    pointer-events: none;
+    opacity: 0.3;
+}
+
 .modeList {
     width: 100%;
     margin-top: 30px;
@@ -476,7 +503,7 @@ background-color: #FF4563;
     width: 290px;
     height: 130px;
     overflow: hidden;
-    margin-top: 37px;
+    margin: 37px 0 0 10;
 }
 
 .swipeBall {
@@ -488,13 +515,13 @@ background-color: #FF4563;
     top: 0;
     left: 130px;
     transform-origin: 50% 145px;
-    transform: rotate(360deg);
+    transform: rotate(283deg);
     z-index: 3;
     transition: 0.7s linear;
 }
 
 .leftScroller {
-    width: 50%;
+    width: 0%;
     overflow: hidden;
     z-index: 2;
     transition: 0.7s linear;
@@ -521,4 +548,301 @@ background-color: #FF4563;
     text-shadow: 0 20px 25px rgba(0,0,0,0.15);
     z-index: 3;
     margin-left: 5px;
+}
+
+
+@media only screen and (max-width:1024px) and (orientation:portrait) {
+    .leftPanel {
+        max-width: 230px;
+        width: 30%;
+    }
+    
+    .indicator {
+        top: 300px;
+    }
+    
+    .pdtListDetail {
+        margin: 0 0 30px;
+    }
+    
+    .pdtListDetail.active {
+        height: 140px;
+        margin-bottom: 40px;
+    }
+    
+    .pdtListDetail.active .pdtDetail {
+        display: none;
+    }
+    
+    .pdtDetail {
+        width: 120px;
+        height: 120px;
+        margin: 32px 0 0 10px;
+        padding: 0;
+        min-width: unset;
+    }
+    
+    ul.pdtDetailList {
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        bottom: 9px;
+    }
+    
+    .pdtTitle {
+        font-size: 11px;
+        letter-spacing: 2.2px;
+        margin: 0 12px;
+    }
+    
+    li.pdtType {
+        display: none;
+    }
+
+    .rightPanel {
+        width: 66%;
+    }
+
+    .rgtPanelWrap {
+
+    }
+
+    .deviceSkuCont {
+        margin-top: 68px;
+    }
+    
+    .deviceSkuTitle {
+        font-size: 13px;
+    }
+
+    .rgtPanelWrap {
+        margin-left: 36px;
+    }
+    
+    .panelTitle, .pdtTitleCont, .skuTitle, .deviceSkus {
+        margin-left: 20px;
+    }
+    
+    .modeTitle {
+        font-size: 16px;
+        letter-spacing: 0.5px;
+    }
+}    
+
+@media only screen and (max-width:767px) {
+    .indicator {
+        top: 260px;
+        right: -25px;
+    }    
+
+    .leftPanel {
+        max-width: 150px;
+        width: 40%;
+    }
+
+    .pdtListWrapper:before {
+        height: 140px;
+    }
+
+    .pdtListCont {
+        margin: 0 20px;
+    }
+
+    .pdtListDetail.active {
+        height: 120px;
+    }
+
+    .pdtImg img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .active .pdtImg img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .pdtDetail {
+        width: 100px;
+        height: 100px;
+    }
+
+    .pdtTitle {
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+    .rightPanel {
+        width: calc(59% - 20px);
+        margin-right: 20px;
+    }
+
+    .panelTitle {
+        position: absolute;
+        font-size: 40px;
+        letter-spacing: 7px;
+        left: 73px;
+        z-index: 3;
+        margin: 0;
+    }
+    
+    .pdtTitleCont {
+        margin-top: 76px;
+        position: relative;
+        width: calc(100% - 10px);
+    }
+    
+    .rgtPanelWrap {
+        margin: 80px 0 0 25px;
+        overflow: hidden;
+    }
+    
+    h3.productTitle {
+        font-size: 25px;
+        letter-spacing: 4px;
+        word-break: break-word;
+        margin-top: 46px;
+    }
+    
+    .toggleCont {
+        position: absolute;
+        right: 0;
+    }
+    
+    .panelTitle, .pdtTitleCont, .skuTitle, .deviceSkus {
+        margin-left: 10px;
+    }
+
+    .deviceSkuTitle {
+        font-size: 11px;
+        letter-spacing: 1.1px;
+    }
+    
+    .titleBorder {
+        width: 92px;
+    }
+    
+    .deviceDetWrap {
+        width: -webkit-fill-available;
+    }
+    
+    .deviceSkus {
+        height: auto;
+        width: 100%;
+        margin-top: 0;
+    }
+    
+    .colorSku input:checked ~ .selected {
+        height: 42px;
+        width: 42px;
+    }
+    
+    .selected {
+        height: 24px;
+        width: 24px;
+    }
+    
+    .colorSku .selected:after {
+        left: 9px;
+        top: 9px;
+    }
+    
+    label.colorSku {
+        height: 24px;
+        width: 24px;
+    }
+    
+    .skuClrCont {
+        width: 15%;
+        margin: 40px 35px 0 0;
+    }
+    
+    .skuClrCont.active {
+        margin-top: 32px;
+    }
+    
+    .skuClrCont:nth-child(3n) {
+        margin-right: 0;
+    }
+    
+    .featureCont {
+        margin: 50px 0 53px;
+    }
+    
+    .modeImg {
+        margin: 12px 0 12px 10px;
+    }
+    
+    .modes {
+        height: 48px;
+    }
+    
+    .modeTitle {
+        font-size: 14px;
+        float: left;
+        margin-left: 20px;
+    }
+    
+    .modeVolume {
+        display: none;
+    }
+    
+    .modeDetail {
+        width: 70%;
+    }
+    
+    .modeDetail:last-child {
+        width: 30%;
+    }
+    
+    .modeAvail.modeImg {
+        margin: 11px 11px 0 24px;
+    }
+
+    .scrollerWrap {
+        margin-left: -10px;
+    }
+    
+    .swipeBall {
+        transform-origin: 50% 92px;
+        left: 77.5px;
+    }
+
+    .scrollerWrap {
+        width: 180px;
+        height: 88px;
+    }
+    
+    .scrollerCont {
+        width: 155px;
+        height: 155px;
+    }
+
+    .scroller {
+        height: 155px;
+        width: 155px;
+    }
+
+    .volume {
+        font-size: 36px;
+        letter-spacing: 5.76px;
+    }
+}    
+
+@media only screen and (max-width:767px) and (orientation:landscape) {
+    .panelTitle {
+        left: 178px;
+    }
+
+    .titleBorder {
+        width: calc(100% - 100px);
+    }
+
+    .rightPanel.panels {
+        width: 73%;
+    }
+    
+    .skuClrCont:nth-child(3n) {
+        margin-right: 35px;
+    }
 }
